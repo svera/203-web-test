@@ -2,21 +2,25 @@
 
 @section('body')
 <div class="container"> 
-  {{ Form::open(['url' => 'registration']) }}
-      {{-- Email address field. -------------------}}
-      {{ Form::label('email', 'Email address') }}
-      {{ Form::email('email', null, ['class' => 'form-control']) }}
+    {{ Form::open(['url' => 'registration']) }}
+        <div class="form-group">
+            {{ Form::label('email', 'Email address') }}
+            {{ Form::email('email', null, ['class' => 'form-control']) }}
+        </div>
 
-      {{-- Password field. ------------------------}}
-      {{ Form::label('password', 'Password') }}
-      {{ Form::password('password', ['class' => 'form-control']) }}
+        <div class="form-group">
+            {{ Form::label('password', 'Password') }}
+            {{ Form::password('password', ['class' => 'form-control']) }}
+        </div>
 
-      {{-- Password confirmation field. -----------}}
-      {{ Form::label('password_confirmation', 'Password confirmation') }}
-      {{ Form::password('password_confirmation', ['class' => 'form-control']) }}
+        <div class="form-group">
+            {{ Form::label('password_confirmation', 'Password confirmation') }}
+            {{ Form::password('password_confirmation', ['class' => 'form-control']) }}
+        </div>
 
-      {{-- Form submit button. --------------------}}
-      {{ Form::submit('Register', ['class' => 'btn btn-primary btn-lg']) }}
-  {{ Form::close() }}
+        <div class="form-group">
+            {{ Form::submit('Register', ['class' => 'btn btn-primary btn-lg pull-right']) }}
+        </div>
+    {{ Form::close() }}
 </div>
 @stop
