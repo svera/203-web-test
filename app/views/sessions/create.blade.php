@@ -8,9 +8,7 @@
             {{ Form::label('email', 'Email address') }}
             {{ Form::email('email', null, ['class' => 'form-control']) }}
             @if ($error = $errors->first("email"))
-                <div class="error">
-                    {{ $error }}
-                </div>
+                <p class="text-danger">{{ $error }}</p>
             @endif
         </div>
 
@@ -18,9 +16,7 @@
             {{ Form::label('password', 'Password') }}
             {{ Form::password('password', ['class' => 'form-control']) }}
             @if ($error = $errors->first("password"))
-                <div class="error">
-                    {{ $error }}
-                </div>
+                <p class="text-danger">{{ $error }}</p>
             @endif
         </div>
 

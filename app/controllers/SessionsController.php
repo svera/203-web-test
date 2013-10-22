@@ -18,7 +18,7 @@ class SessionsController extends Controller
     public function store()
     {
         $validator = Validator::make(Input::all(), [
-            'email'    => 'required',
+            'email'    => 'required|email',
             'password' => 'required'
         ]);
         if ($validator->passes()) {

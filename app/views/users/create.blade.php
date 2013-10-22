@@ -7,16 +7,25 @@
         <div class="form-group">
             {{ Form::label('email', 'Email address') }}
             {{ Form::email('email', null, ['class' => 'form-control']) }}
+            @if ($error = $errors->first("email"))
+                <p class="text-danger">{{ $error }}</p>
+            @endif
         </div>
 
         <div class="form-group">
             {{ Form::label('password', 'Password') }}
             {{ Form::password('password', ['class' => 'form-control']) }}
+            @if ($error = $errors->first("password"))
+                <p class="text-danger">{{ $error }}</p>
+            @endif
         </div>
 
         <div class="form-group">
             {{ Form::label('password_confirmation', 'Password confirmation') }}
             {{ Form::password('password_confirmation', ['class' => 'form-control']) }}
+            @if ($error = $errors->first("password_confirmation"))
+                <p class="text-danger">{{ $error }}</p>
+            @endif
         </div>
 
         <div class="form-group">
