@@ -39,14 +39,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->password;
 	}
 
-	/**
-	 * Get the e-mail address where password reminders are sent.
-	 *
-	 * @return string
-	 */
-	public function getReminderEmail()
-	{
-		return $this->email;
-	}
+    /**
+     * Get the e-mail address where password reminders are sent.
+     *
+     * @return string
+     */
+    public function getReminderEmail()
+    {
+        return $this->email;
+    }
 
 }

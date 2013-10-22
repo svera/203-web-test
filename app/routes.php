@@ -11,12 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-  return View::make('index');
-});
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::resource('users', 'UsersController', ['only' => ['create', 'store']]);
+Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
 
-Route::get('/users/new', function()
-{
-  return View::make('users/new');
-});

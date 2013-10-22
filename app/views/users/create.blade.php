@@ -2,7 +2,8 @@
 
 @section('body')
 <div class="container"> 
-    {{ Form::open(['url' => 'registration']) }}
+    <h2>Register</h2>
+    {{ Form::open(['route' => 'users.store']) }}
         <div class="form-group">
             {{ Form::label('email', 'Email address') }}
             {{ Form::email('email', null, ['class' => 'form-control']) }}
