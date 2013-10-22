@@ -4,6 +4,9 @@ use Illuminate\Support\MessageBag;
 
 class SessionsController extends Controller
 {
+    /**
+     * Shows the login form
+     */
     public function create()
     {
         return View::make("sessions/create");
@@ -34,7 +37,7 @@ class SessionsController extends Controller
                 return View::make("sessions.create", $data);
             }
         }
-        return Redirect::to('sessions.create')->withErrors($validator);
+        return Redirect::route('sessions.create')->withInput()->withErrors($validator);
     }
 
     /**
