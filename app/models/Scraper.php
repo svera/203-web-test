@@ -4,7 +4,6 @@ abstract class Scraper {
 
     protected $curl;
     protected $content;
-    public    $matches = [];
 
     public function __construct($url)
     {

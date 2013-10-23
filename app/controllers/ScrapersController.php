@@ -6,8 +6,8 @@ class ScrapersController extends BaseController {
     {
         $scraper = new ScraperUtensiliosDeCocina();
         $scraper->getContent();
-        $scraper->parse();
-        foreach ($scraper->matches as $current) {
+        $matches = $scraper->parse();
+        foreach ($matches as $current) {
             $product       = new Product();
             $product->name = $current;
             $product->save();

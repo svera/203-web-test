@@ -12,6 +12,8 @@
 */
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-Route::resource('users', 'UsersController', ['only' => ['create', 'store']]);
+Route::resource('users',    'UsersController',    ['only' => ['create', 'store']]);
 Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
+Route::resource('scrapers', 'ScrapersController', ['only' => ['index']]);
+Route::resource('search',   'SearchController',   ['only' => ['index']]);
 

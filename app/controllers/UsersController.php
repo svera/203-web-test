@@ -15,9 +15,9 @@ class UsersController extends BaseController {
         $validator = Validator::make(
             Input::all(),
             [
-                'email'                 => 'required|unique:users',
-                'password'              => 'required',
-                'password_confirmation' => 'required|same:password'
+                'email'                 => ['required', 'unique:users'],
+                'password'              => ['required'],
+                'password_confirmation' => ['required', 'same:password']
             ]
         );
         if ($validator->passes()) {

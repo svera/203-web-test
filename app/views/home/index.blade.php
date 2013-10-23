@@ -35,15 +35,19 @@
             </div>
         @endif
 
-        <h1>Search</h1>
-        <form action="" method="get">
+        <h2>Search for products</h2>
+        {{ Form::open(['route' => 'search.index', 'method' => 'get', 'id' => 'search-form']) }}
             <div class="form-group">
-                <input type="text" placeholder="Product name or description" class="form-control input-lg">
+                <input type="text" name="search" placeholder="Product name or description" class="form-control input-lg">
             </div>
             <div class="form-group pull-right">
-                <input type="submit" class="btn btn-primary btn-lg">
+                <input type="submit" class="btn btn-primary btn-lg" value="Search">
             </div>
-        </form>
+        {{ Form::close() }}
+
+        <div id="wrapper" class="table-responsive">
+        </div>
     </div>
 </main>
+
 @stop
