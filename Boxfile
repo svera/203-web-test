@@ -13,6 +13,7 @@ web1:
     - pdo_mysql
     - mcrypt
     - curl
+    - zip
   before_deploy:
     - "php artisan migrate:install"
     - "php artisan migrate"
