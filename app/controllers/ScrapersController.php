@@ -4,7 +4,7 @@ class ScrapersController extends BaseController {
 
     public function index()
     {
-        $scraper = new ScraperUtensiliosDeCocina();
+        $scraper = new ScraperGastronomiaYCia();
         $scraper->getContent();
         $matches = $scraper->parse();
         foreach ($matches as $current) {
@@ -12,7 +12,6 @@ class ScrapersController extends BaseController {
             $product->name = $current;
             $product->save();
         }
-        //return View::make('home/index');
     }
 
 }

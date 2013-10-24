@@ -36,7 +36,7 @@
         @endif
 
         <h2>Search for products</h2>
-        {{ Form::open(['route' => 'search.index', 'method' => 'get', 'id' => 'search-form']) }}
+        {{ Form::open(['route' => 'search.index', 'method' => 'get', 'id' => 'search-form', 'class' => 'clearfix']) }}
             <div class="form-group">
                 <input type="text" name="search" placeholder="Product name or description" class="form-control input-lg">
             </div>
@@ -45,7 +45,7 @@
             </div>
         {{ Form::close() }}
 
-        <div id="wrapper" class="table-responsive">
+        <div id="wrapper" class="table-responsive clearfix">
         </div>
     </div>
 </main>
