@@ -1,2 +1,4 @@
 db1:
   type: mysql
+before_deploy:
+- "php artisan db:seed"

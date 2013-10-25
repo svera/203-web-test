@@ -1,6 +1,17 @@
 <?php
 
+use Illuminate\Support\MessageBag;
+
 class UsersController extends BaseController {
+
+    /**
+     * Controller constructor, applies a filter to check wether a user is logged in
+     * or not, redirecting depending on the case
+     */
+    public function __construct()
+    {
+        $this->beforeFilter('redirectIfLoggedIn');
+    }
 
     public function create()
     {
@@ -14,11 +25,7 @@ class UsersController extends BaseController {
     {
         $validator = Validator::make(
             Input::all(),
-            [
-                'email'                 => ['required', 'unique:users'],
-                'password'              => ['required'],
-                'password_confirmation' => ['required', 'same:password']
-            ]
+            User::getValidationRules()
         );
         if ($validator->passes()) {
             $user = new User;

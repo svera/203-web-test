@@ -1,16 +1,26 @@
 <?php
 
 use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends Eloquent implements UserInterface {
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password');
+	protected $hidden = ['password'];
+
+    /**
+     *  Validation rules of the model
+     * 
+     * @var array
+     */
+    protected static $rules = [
+        'email'                 => ['required', 'unique:users'],
+        'password'              => ['required'],
+        'password_confirmation' => ['required', 'same:password']
+    ];
 
 	/**
 	 * Get the unique identifier for the user.
@@ -33,13 +43,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	}
 
     /**
-     * Get the e-mail address where password reminders are sent.
-     *
-     * @return string
+     * Get the model validation rules
+     * 
+     * @return array
      */
-    public function getReminderEmail()
+    public static function getValidationRules()
     {
-        return $this->email;
+        return self::$rules;
     }
-
 }

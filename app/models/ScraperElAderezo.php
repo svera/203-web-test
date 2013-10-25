@@ -1,6 +1,6 @@
 <?php
 
-class ScraperElAderezo extends Scraper {
+class ScraperElAderezo extends BaseScraper {
 
     public function __construct()
     {

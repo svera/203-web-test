@@ -2,8 +2,17 @@
 
 use Illuminate\Support\MessageBag;
 
-class SessionsController extends Controller
+class SessionsController extends BaseController
 {
+    /**
+     * Controller constructor, applies a filter to check wether a user is logged in
+     * or not, redirecting depending on the case
+     */
+    public function __construct()
+    {
+        $this->beforeFilter('redirectIfLoggedIn', ['except' => 'destroy']);
+    }
+
     /**
      * Shows the login form
      */
@@ -17,10 +26,13 @@ class SessionsController extends Controller
      */
     public function store()
     {
-        $validator = Validator::make(Input::all(), [
-            'email'    => 'required|email',
-            'password' => 'required'
-        ]);
+        $validator = Validator::make(
+            Input::all(),
+            [
+                'email'    => 'required|email',
+                'password' => 'required'
+            ]
+        );
         if ($validator->passes()) {
             $credentials = [
                 'email'    => Input::get('email'),
