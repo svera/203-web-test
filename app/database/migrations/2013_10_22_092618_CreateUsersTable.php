@@ -22,6 +22,10 @@ class CreateUsersTable extends Migration {
             $table
                 ->string("password")
                 ->nullable(false);
+            $table
+                ->foreign('interest_id')
+                ->references('id')
+                ->on('interests');                
             $table->timestamps();
         });
 	}
