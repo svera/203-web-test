@@ -32,10 +32,7 @@ class CreateInterestUserTable extends Migration {
      */
     public function down()
     {
-        Schema::table('interest_user', function(Blueprint $table)
-        {
-            Schema::dropIfExists('interest_user');
-        });
+        Schema::dropIfExists('interest_user');
     }
 
 }

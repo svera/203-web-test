@@ -29,10 +29,7 @@ class CreateInterestsTable extends Migration {
      */
     public function down()
     {
-        Schema::table('interests', function(Blueprint $table)
-        {
-           	Schema::dropIfExists('interests');
-        });
+       	Schema::dropIfExists('interests');
     }
 
 }
