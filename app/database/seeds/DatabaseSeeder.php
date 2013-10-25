@@ -2,17 +2,18 @@
 
 class DatabaseSeeder extends Seeder {
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
 	public function run()
 	{
-		Eloquent::unguard();
+        Eloquent::unguard();
 
-		$this->call('UserSeeder');
-		$this->call('ProductsSeeder');
-	}
+        $this->call('UserSeeder');
+        $this->call('InterestsSeeder');
+        $this->call('ProductsSeeder');
+    }
 
 }

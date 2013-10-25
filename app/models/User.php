@@ -22,6 +22,14 @@ class User extends Eloquent implements UserInterface {
         'password_confirmation' => ['required', 'same:password']
     ];
 
+    /**
+     * Define a many to many relationship with the Interest model
+     */
+    public function interests()
+    {
+        return $this->belongsToMany('Interest');
+    }
+    
 	/**
 	 * Get the unique identifier for the user.
 	 *

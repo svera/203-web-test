@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddInterestsForeignKey extends Migration {
+class CreateInterestUserTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,16 +12,17 @@ class AddInterestsForeignKey extends Migration {
      */
     public function up()
     {
-        Schema::table('users', function($table)
+        Schema::create('interest_user', function($table)
         {
             $table
                 ->integer("interest_id")
-                ->unsigned()
-                ->nullable();
+                ->nullable(false)
+                ->unsigned();
             $table
-                ->foreign('interest_id')
-                ->references('id')
-                ->on('interests');                
+                ->integer("user_id")
+                ->nullable(false)
+                ->unsigned();
+            $table->timestamps();
         });
 	}
 
@@ -32,9 +33,9 @@ class AddInterestsForeignKey extends Migration {
      */
     public function down()
     {
-        Schema::table('users', function(Blueprint $table)
+        Schema::table('interest_user', function(Blueprint $table)
         {
-           	Schema::dropColumn('interest_id');
+            Schema::dropIfExists('interest_user');
         });
     }
 

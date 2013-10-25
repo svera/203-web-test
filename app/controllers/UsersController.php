@@ -15,7 +15,8 @@ class UsersController extends BaseController {
 
     public function create()
     {
-        return View::make('users/create');
+        $interests = DB::table('interests')->lists('name', 'id');
+        return View::make('users/create')->with(['interests' => $interests]);
     }
 
     /**
