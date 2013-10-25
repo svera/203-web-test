@@ -12,7 +12,7 @@
 */
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-Route::resource('users',    'UsersController',    ['only' => ['create', 'store']]);
+Route::resource('users',    'UsersController',    ['only' => ['create', 'store', 'show']]);
 Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
 Route::resource('search',   'SearchController',   ['only' => ['index']]);
 

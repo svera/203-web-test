@@ -10,9 +10,20 @@ class UsersController extends BaseController {
      */
     public function __construct()
     {
-        $this->beforeFilter('redirectIfLoggedIn');
+        $this->beforeFilter('redirectIfLoggedIn', ['except' => 'show']);
     }
 
+    /**
+     * Show user profile data
+     */
+    public function show($id)
+    {
+        return View::make('users/show')->with(['user' => User::find($id)]);
+    }
+
+    /**
+     * Show new user form
+     */
     public function create()
     {
         $interests = DB::table('interests')->lists('name', 'id');
@@ -33,6 +44,7 @@ class UsersController extends BaseController {
             $user->email    = Input::get('email');
             $user->password = Hash::make(Input::get('password'));
             $user->save();
+            $user->interests()->sync(Input::get('interests'));
             if ($user->id) {
                 return Redirect::route('home')->with('message', 'User created');
             }

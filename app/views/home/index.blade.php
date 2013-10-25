@@ -5,8 +5,9 @@
     <div class="container">
         <div class="navbar-collapse collapse">
             @if (Auth::check())
-                {{ Form::open(array('route' => array('sessions.destroy', 1), 'method' => 'delete')) }}
-                    <button type="submit" class="btn btn-sm btn-danger pull-right">Logout</button>
+                {{ Form::open(['route' => ['sessions.destroy', 1], 'method' => 'delete', 'class' => 'pull-right']) }}
+                    <a href="{{ URL::action('UsersController@show', Auth::user()->id) }}">View profile</a>
+                    <button type="submit" class="btn btn-sm btn-danger">Logout</button>
                 {{ Form::close() }}
             @else
                 {{ Form::open(['route' => 'sessions.store', 'class' => 'navbar-form navbar-right']) }}

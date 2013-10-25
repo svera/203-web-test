@@ -22,7 +22,6 @@ class CreateInterestUserTable extends Migration {
                 ->integer("user_id")
                 ->nullable(false)
                 ->unsigned();
-            $table->timestamps();
         });
 	}
 
