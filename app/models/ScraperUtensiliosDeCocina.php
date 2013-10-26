@@ -14,7 +14,7 @@ class ScraperUtensiliosDeCocina extends BaseScraper {
         
         if (preg_match_all($regex, $this->content, $list)) {
             foreach ($list[1] as $current) {
-                $matches[] = trim($current);
+                $matches[] = utf8_encode(trim($current));
             }
         }
         return $matches;
