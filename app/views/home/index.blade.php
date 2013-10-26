@@ -36,17 +36,23 @@
             </div>
         @endif
 
-        <h2>Search for products</h2>
-        {{ Form::open(['route' => 'search.index', 'method' => 'get', 'id' => 'search-form', 'class' => 'clearfix']) }}
-            <div class="form-group">
-                <input type="text" name="search" placeholder="Product name or description" class="form-control input-lg">
+        @if (Session::get('error'))
+            <div class="alert alert-danger">
+                {{ Session::get('error') }}
             </div>
-            <div class="form-group pull-right">
-                <input type="submit" class="btn btn-primary btn-lg" value="Search">
+        @endif
+
+        <h2>Search for products</h2>
+        {{ Form::open(['route' => 'search.index', 'method' => 'get', 'id' => 'search-form']) }}
+            <div class="input-group">
+                <input type="text" name="search" placeholder="Product name or description" class="form-control input-lg">
+                <span class="input-group-btn">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Search">
+                </span>
             </div>
         {{ Form::close() }}
 
-        <div id="wrapper" class="table-responsive clearfix">
+        <div id="wrapper" class="table-responsive">
         </div>
     </div>
 </main>

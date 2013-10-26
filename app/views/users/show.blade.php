@@ -19,5 +19,6 @@
             @endif
         </dd>
     </dl>
+    <a href="{{ URL::route('home') }}" class="btn btn-default btn-lg">Return</a>        
 </div>
 @stop

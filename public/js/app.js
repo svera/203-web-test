@@ -25,10 +25,11 @@ function remoteQuery()
 
 /**
  * Renders a table with the passed data 
+ * @todo Keep HTML hardcoded into JS is not a good idea
  */
 function renderData(data)
 {
-    var html = '<table class="table"><tbody>';
+    var html = '<table class="table table-striped"><thead><tr><th>Name</th></tr></thead><tbody>';
     for (index in data) {
         html += '<tr><td>' + data[index].name + '</td></tr>';
     }

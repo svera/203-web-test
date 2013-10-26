@@ -18,7 +18,11 @@ class UsersController extends BaseController {
      */
     public function show($id)
     {
-        return View::make('users/show')->with(['user' => User::find($id)]);
+        if (Auth::user()->id == $id) {
+            return View::make('users/show')->with(['user' => User::find($id)]);
+        } else {
+            return Redirect::route('home')->with('error', "You don't have permission to view this profile");
+        }
     }
 
     /**
@@ -46,6 +50,7 @@ class UsersController extends BaseController {
             $user->save();
             $user->interests()->sync(Input::get('interests'));
             if ($user->id) {
+                Auth::login($user);
                 return Redirect::route('home')->with('message', 'User created');
             }
         }

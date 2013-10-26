@@ -18,7 +18,7 @@ class User extends Eloquent implements UserInterface {
      */
     protected static $rules = [
         'email'                 => ['required', 'unique:users'],
-        'password'              => ['required'],
+        'password'              => ['required', 'regex:/^(?=\S*[a-zA-Z]{6,})(?=\S*[\d])(?=\S*[\W])\S*$/'],
         'password_confirmation' => ['required', 'same:password']
     ];
 
