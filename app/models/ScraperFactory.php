@@ -2,6 +2,10 @@
 
 class ScraperFactory
 {
+    /**
+     * Creates and returns an object of the passed type
+     * @return object
+     */
     static function make($type)
     {
         $scraper = null;
