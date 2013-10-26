@@ -8,6 +8,10 @@ class ProductsSeeder extends DatabaseSeeder
         'UtensiliosDeCocina'
     ];
 
+    /**
+     * Loop over all scrapers defined in $scrapers, executes them and
+     * save the results in the products table
+     */
     public function run()
     {
         foreach ($this->scrapers as $currentScraper) {
