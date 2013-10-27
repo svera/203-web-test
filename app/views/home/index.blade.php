@@ -13,10 +13,10 @@
                 {{ Form::open(['route' => 'sessions.store', 'class' => 'navbar-form navbar-right']) }}
                     <div class="row">
                         <div class="form-group">
-                            <input name="email" type="text" placeholder="Email" class="form-control">
+                            <input name="email" type="email" placeholder="Email" class="form-control" required="required">
                         </div>
                         <div class="form-group">
-                            <input name="password" type="password" placeholder="Password" class="form-control">
+                            <input name="password" type="password" placeholder="Password" class="form-control" required="required">
                         </div>
                         <button type="submit" class="btn btn-success">Sign in</button>
                     </div>
