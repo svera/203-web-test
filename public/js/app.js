@@ -11,6 +11,7 @@ function remoteQuery()
         e.preventDefault();
         if ($.trim($(this).find('input[type=text]').first().val()) != '') {
             $(this).find('input[type=submit]').first().attr('disabled', 'disabled');
+            $('#wrapper').html('<p>Searching...</p>');
             $.get(
                 $(this).attr('action'),
                 $(this).find('input[type=text]').first(),
