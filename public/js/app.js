@@ -9,12 +9,12 @@ function remoteQuery()
 {
     $('#search-form').submit(function(e) {
         e.preventDefault();
-        if ($.trim($(this).find('input[type=text]').first().val()) != '') {
+        if ($.trim($(this).find('input[type=search]').first().val()) != '') {
             $(this).find('input[type=submit]').first().attr('disabled', 'disabled');
             $('#wrapper').html('<p>Searching...</p>');
             $.get(
                 $(this).attr('action'),
-                $(this).find('input[type=text]').first(),
+                $(this).find('input[type=search]').first(),
                 function(data) {
                     if (data.length > 0) {
                         $('#wrapper').html(renderData(data));

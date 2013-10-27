@@ -45,7 +45,7 @@
         <h2>Search for products</h2>
         {{ Form::open(['route' => 'search.index', 'method' => 'get', 'id' => 'search-form']) }}
             <div class="input-group">
-                <input type="text" name="search" placeholder="Product name or description" class="form-control input-lg">
+                <input type="search" name="search" placeholder="Product name or description" class="form-control input-lg" required="required">
                 <span class="input-group-btn">
                     <input type="submit" class="btn btn-primary btn-lg" value="Search">
                 </span>
