@@ -4,7 +4,7 @@
 <div class="container"> 
     <h2>User data</h2>
     <dl>
-        <dt>Name</dt>
+        <dt>Email</dt>
         <dd>{{ $user->email }}</dd>
         <dt>Interests</dt>
         <dd>
