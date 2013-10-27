@@ -5,4 +5,7 @@ donde los usuarios pueden registrarse e identificarse, y un pequeño buscador qu
 buscador son extraídos de [El aderezo](http://eladerezo.hola.com/tag/utensilios), [Gastronomía y cia](http://www.gastronomiaycia.com/category/utensilios-de-cocina/) y [losutensiliosdecocina.es](http://www.losutensiliosdecocina.es) durante la primera instalación de la plataforma, e insertados en la base de
 datos mediante un _seeder_ ([app/database/seeds/ProductsSeeder.php](https://github.com/svera/203-web-test/blob/master/app/database/seeds/ProductsSeeder.php))
 
+El grueso del código fuente se encuentra dentro de la carpeta [/app](https://github.com/svera/203-web-test/tree/master/app). Los controladores siguen un esquema REST, que utiliza nombres de acción estandar 
+y verbos HTTP para el enrutamiento. Para más información, ver [http://laravel.com/docs/controllers#resource-controllers](http://laravel.com/docs/controllers#resource-controllers).
+
 Puedes ver la aplicación en línea en [http://svera.gopagoda.com/](http://svera.gopagoda.com/). El modelo de datos puede consultarse dentro del código fuente, en la carpeta [app/database/model.png](https://github.com/svera/203-web-test/blob/master/app/database/model.png).

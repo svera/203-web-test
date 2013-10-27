@@ -9,17 +9,26 @@ function remoteQuery()
 {
     $('#search-form').submit(function(e) {
         e.preventDefault();
-        $.get(
-            $(this).attr('action'),
-            $(this).find('input[type=text]').first(),
-            function(data) {
-                if (data.length > 0) {
-                    $('#wrapper').html(renderData(data));
-                } else {
-                    $('#wrapper').html('<p>No results found.</p>');
+        if ($.trim($(this).find('input[type=text]').first().val()) != '') {
+            $(this).find('input[type=submit]').first().attr('disabled', 'disabled');
+            $.get(
+                $(this).attr('action'),
+                $(this).find('input[type=text]').first(),
+                function(data) {
+                    if (data.length > 0) {
+                        $('#wrapper').html(renderData(data));
+                    } else {
+                        $('#wrapper').html('<p>No results found.</p>');
+                    }
                 }
-            }
-        );
+            )
+            .fail(function() {
+                $('#wrapper').html('<p>Internal server error</p>');
+            })
+            .always(function() {
+                $('#search-form').find('input[type=submit]').first().removeAttr('disabled');
+            });            
+        }
     })
 }
 
